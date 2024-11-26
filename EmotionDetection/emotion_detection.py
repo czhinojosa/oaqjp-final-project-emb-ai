@@ -8,7 +8,6 @@ def emotion_detector(text_to_analyze):
     response = requests.post(url, json = myobj, headers=header)
 
     formatted_response = json.loads(response.text)
-
     emotion_scores = {}
     if response.status_code == 400:
         emotion_scores =  {
@@ -26,5 +25,3 @@ def emotion_detector(text_to_analyze):
     emotion_scores['dominant_emotion'] = dominant_emotion
 
     return emotion_scores
-
-print(emotion_detector("I am so happy I am doing this"))
